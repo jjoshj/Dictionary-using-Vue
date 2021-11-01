@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dictionary Using Vue</title>
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css'></link>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    
+</head>
+<body>
+    <div id="form" >
+        <h1>{{title}}</h1>
+        <form @submit.prevent="formSubmit">
+            <div class="form__line"><input v-model="name" name="name" type="text" /></div>
+           
+            <div class="form__line"><button>Submit</button></div>
+            
+            <p>
+              <i>{{ submitted.name }}</i>
+             
+            </p>
+            <div v-if="countries.length > 0" v-for='country in countries'>
+            <h5 class="card-title">{{country.word}}</h5>
+            <p>{{country.phonetic}}</p>
+            <p>Part of Speech:{{country.meanings[0].partOfSpeech}}</p>
+            <p>Definition:{{country.meanings[0].definitions[0].definition}}</p>
+            <p>{{country.meanings[0].definitions[0].example}}</p>
+
+            <p>Part of Speech:{{country.meanings[1].partOfSpeech}}</p>
+            <p>Definition:{{country.meanings[1].definitions[0].definition}}</p>
+            <p>Example:{{country.meanings[1].definitions[0].example}}</p>
+
+        
+        </div>
+          </form>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+    <script src='./app.js'></script>
+</body>
+</html>
